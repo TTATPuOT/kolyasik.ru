@@ -1,0 +1,291 @@
+@import "https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&amp;subset=cyrillic";
+
+body {
+    font-family: "Open Sans", serif;
+    background: #1f2225;
+    color: #FFF
+}
+
+.container{
+    max-width: 1180px;
+    padding: 0 15px;
+    margin: auto;
+    display: flex;
+}
+
+section.leaders{
+    padding-top: 50px
+}
+section.leaders .container{
+    max-width: 650px;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+section.leaders .container .user{
+    flex-basis: 200px;
+    text-align: center
+}
+section.leaders .container .user .avatar{
+    position: relative;
+    border: 3px solid #2b2f33;
+    border-radius: 50%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    height: 60px;
+    width: 60px;
+    display: inline-block
+}
+section.leaders .container .user .avatar.winner:after{
+    content: "";
+    position: absolute;
+    height: 23px;
+    width: 23px;
+    right: -5px;
+    top: -17px;
+    background: url(/img/crown.svg) 50% 50% no-repeat
+}
+section.leaders .container .user .nick{
+    font-size: 16px;
+    font-weight: 600;
+    margin-top: 7px;
+    margin-bottom: 5px
+}
+section.leaders .container .user .nick span{
+    display: inline-block;
+    margin-left: 3px;
+    color: #8F9192;
+    font-size: 13px;
+    font-weight: 400
+}
+section.leaders .container .user .pedestal{
+    position: relative;
+    font-weight: 600;
+}
+section.leaders .container .user .pedestal img{
+    width: 100%;
+}
+section.leaders .container .user .pedestal.top-1{
+    color: #A88200;
+    font-size: 44px;
+}
+section.leaders .container .user .pedestal.top-2{
+    color: #494A4B;
+    font-size: 40px;
+}
+section.leaders .container .user .pedestal.top-3{
+    color: #674320;
+    font-size: 36px;
+}
+section.leaders .container .user .pedestal .rank{
+    display: flex;
+    position: absolute;
+    width: 100%;
+    height: calc(100% - 33px);
+    font-weight: 800;
+    top: 0;
+    left: 0;
+    align-items: center;
+    justify-content: center;
+    padding-top: 26px;
+}
+
+section.main {
+    position: relative;
+    z-index: 2;
+    margin-top: -10px;
+    padding-bottom: 50px
+}
+section.main .page {
+    border-radius: 6px;
+    padding: 15px;
+    background: #2B2F33;
+    flex: 1;
+}
+
+section.main .page .tabs {
+    font-weight: 600;
+    text-transform: uppercase;
+    padding-top: 15px;
+    padding-bottom: 25px;
+    max-width: 600px;
+    margin: auto
+}
+
+section.main .page .tabs ul {
+    margin: 0;
+    padding: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between
+}
+
+section.main .page .tabs ul li {
+    display: inline-block
+}
+section.main .page .tabs ul li a{
+    padding: 10px;
+    color: #FFF;
+    text-decoration: none;
+}
+section.main .page .tabs ul li a.active {
+    border-bottom: 2px solid #faa51b;
+    position: relative
+}
+section.main .page .tabs ul li a.active:after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    bottom: -9px;
+    left: 0;
+    -webkit-box-shadow: 0 -4px 6px 0 RGBA(250, 165, 27, .2);
+    box-shadow: 0 -4px 6px 0 RGBA(250, 165, 27, .2);
+    height: 9px
+}
+
+section.main .page .content {
+    font-weight: 600;
+    color: #B7C1C2;
+    font-size: 16px
+}
+section.main .page .content .users-table .user-row{
+    padding: 0 15px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+section.main .page .content .users-table .user-row:nth-child(2n){
+    background: #272a2e;
+}
+section.main .page .content .users-table .user-row > div {
+    padding: 15px 0;
+}
+section.main .page .content .users-table .user-row .position {
+    flex: 1;
+    color: #FFF;
+    width: 40px;
+    font-weight: 500;
+    font-size: 18px
+}
+section.main .page .content .users-table .user-row .avatar{
+    flex: 1.3;
+    text-align: left;
+}
+section.main .page .content .users-table .user-row .avatar img{
+    max-width: 40px;
+    width: 40px;
+    border-radius: 50%;
+    background: #272A2E;
+}
+section.main .page .content .users-table tr td.avatar img{
+    border-radius: 50%;
+    height: 40px;
+    width: 40px
+}
+section.main .page .content .users-table .user-row .name{
+    flex: 12;
+    color: #fffeee;
+}
+section.main .page .content .users-table .user-row .name a{
+    text-decoration: none;
+    color: #fffeee;
+}
+section.main .page .content .users-table .user-row .name a span{
+    color: #8F9192;
+    font-size: 11px;
+    font-weight: 400;
+    display: inline-block;
+    margin-left: 3px
+}
+section.main .page .content .users-table .user-row .name a:hover{
+    text-decoration: underline;
+}
+section.main .page .content .users-table .user-row .rating{
+    flex: 5;
+    text-align: right;
+}
+section.main .page .content .users-table .user-row .rating i {
+    font-style: normal;
+    font-size: 20px;
+    color: #FFF
+}
+section.main .page .content .users-table .user-row .rating small {
+    display: block;
+    color: #777d7d;
+}
+
+section.main .page .content .ranks{
+    text-align: center;
+}
+section.main .page .content .ranks .levels{
+    padding-bottom: 25px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+section.main .page .content .ranks .level{
+    margin: 0 15px;
+    position: relative;
+    color: #1F8B4C;
+    text-transform: uppercase;
+    text-align: center;
+    flex-basis: 300px;
+    border: 1px solid #1F8B4C;
+    border-radius: 3px;
+    padding: 15px;
+    margin-top: 25px;
+}
+section.main .page .content .ranks .level span{
+    top: -9px;
+    right: -9px;
+    position: absolute;
+    text-transform: none;
+    color: #000;
+    background: #FFF;
+    display: inline-block;
+    border-radius: 9px;
+    font-size: 10px;
+    padding: 2px 7px
+}
+
+section.main .page .content .profile{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+section.main .page .content .profile .avatar{
+    display: inline-block;
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 15px solid #272a2e;
+    justify-content: center;
+    align-items: center;
+}
+section.main .page .content .profile .avatar img{
+    width: 100%;
+}
+section.main .page .content .profile .description{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 25px;
+    text-align: left;
+    color: #fffeee;
+    font-size: 24px;
+}
+section.main .page .content .profile .description .name{
+    margin-bottom: 25px;
+    font-weight: 700;
+    font-size: 36px;
+}
+section.main .page .content .profile .description .name small{
+    font-weight: 500;
+    font-size: 24px;
+    color: #8F9192;
+}
