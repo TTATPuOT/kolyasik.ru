@@ -39,6 +39,9 @@ class Leaders extends Component {
             }
 
             return <Router>
+                <section className="server">
+                    <a href="https://discord.gg/6SEuuNM" target="_blank" rel="noopener noreferrer">Вступить на сервер</a>
+                </section>
                 <section className="leaders">
                     <div className="container">
                         {top}
