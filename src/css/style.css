@@ -5,7 +5,9 @@ body {
     background: #1f2225;
     color: #FFF
 }
-
+.text-center{
+    text-align: center;
+}
 .container{
     max-width: 1180px;
     padding: 0 15px;
@@ -108,7 +110,7 @@ section.main .page .tabs {
     text-transform: uppercase;
     padding-top: 15px;
     padding-bottom: 25px;
-    max-width: 600px;
+    max-width: 800px;
     margin: auto
 }
 
@@ -261,6 +263,7 @@ section.main .page .content .profile .avatar{
     display: inline-block;
     height: 200px;
     width: 200px;
+    min-width: 200px;
     border-radius: 50%;
     overflow: hidden;
     border: 15px solid #272a2e;
@@ -288,4 +291,125 @@ section.main .page .content .profile .description .name small{
     font-weight: 500;
     font-size: 24px;
     color: #8F9192;
+}
+
+section.main .page .games{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+section.main .page .games .game{
+    cursor: pointer;
+    position: relative;
+    background-size: cover;
+    flex: 0 1 calc(33% - 15px);
+    margin-right: 15px;
+    margin-bottom: 15px;
+    height: 170px;
+    border-radius: 5px;
+    overflow: hidden;
+    background-position: 50% 50%;
+    opacity: 0.8;
+    transition: 0.2s;
+}
+section.main .page .games .game:hover{
+    opacity: 1;
+}
+section.main .page .games .game:nth-child(3n){
+    margin-right: 0;
+}
+section.main .page .games .game .name{
+    display: none;
+}
+section.main .page .games .game .price{
+    font-weight: 700;
+    font-size: 22px;
+    position: absolute;
+    background: #FFF;
+    border-radius: 30px;
+    padding: 7px 15px;
+    right: 10px;
+    bottom: 10px;
+    color: #1f2225;
+}
+
+@media (max-width: 800px) {
+    section.main .page .content .users-table .user-row .position{
+        flex: 1.5;
+    }
+    section.main .page .content .users-table .user-row .avatar{
+        flex: 1.5;
+    }
+}
+@media (max-width: 700px) {
+    section.main .page .tabs ul{
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    section.main .page .tabs ul li{
+        margin-bottom: 25px;
+    }
+    section.main .page .content .users-table .user-row .position{
+        flex: 1.5;
+    }
+    section.main .page .content .users-table .user-row .avatar{
+        flex: 1.5;
+    }
+    section.main .page .content .users-table .user-row .name{
+        flex: 9;
+    }
+    section.main .page .content .users-table .user-row .rating{
+        flex: 5;
+    }
+    section.main .page .games .game{
+        flex: 0 1 calc(50% - 15px);
+    }
+    section.main .page .games .game:nth-child(3n){
+        margin-right: 15px;
+    }
+    section.main .page .games .game:nth-child(2n){
+        margin-right: 0;
+    }
+    section.leaders .container{
+        padding: 0 30px;
+    }
+    section.main .page .content .profile .description .name{
+        font-size: 24px;
+    }
+    section.main .page .content .profile .description {
+        font-size: 20px;
+    }
+}
+@media (max-width: 600px) {
+    section.main .page .content .users-table{
+        margin-left: -15px;
+        width: calc(100% + 30px);
+    }
+    section.main .page .content .users-table .user-row .name{
+        flex: 5;
+    }
+    .container{
+        padding: 0;
+    }
+    section.main{
+        padding-bottom: 0;
+    }
+    section.main .page{
+        border-radius: 0;
+    }
+    section.main .page .games .game{
+        flex-basis: 100%;
+        margin-right: 0 !important;
+    }
+    section.main .page .content .profile .avatar{
+        height: 100px;
+        width: 100px;
+        min-width: 100px;
+    }
+    section.main .page .content .profile .description .name{
+        font-size: 20px;
+    }
+    section.main .page .content .profile .description {
+        font-size: 16px;
+    }
 }

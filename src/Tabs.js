@@ -5,6 +5,7 @@ import Table from "./Blocks/Table";
 import Ranks from "./Blocks/Ranks";
 import Tokens from "./Blocks/Tokens";
 import Commands from "./Blocks/Commands";
+import Games from "./Blocks/Games";
 import NotFound from "./Blocks/NotFound";
 import Profile from "./Blocks/Profile";
 
@@ -16,53 +17,14 @@ class Tabs extends Component {
 
         this.state = {
             tabs: [
-                {
-                    name: 'Рейтинг',
-                    url: "/",
-                }, {
-                    name: 'Ранги',
-                    url: "/ranks",
-                }, {
-                    name: 'Как получить токены?',
-                    url: "/tokens",
-                }, {
-                    name: 'Команды',
-                    url: "/commands",
-                }
+                { name: 'Рейтинг', url: "/" },
+                { name: 'Ранги', url: "/ranks" },
+                { name: 'Как получить токены?', url: "/tokens" },
+                { name: 'Команды', url: "/commands" },
+                { name: 'Ключи Steam', url: "/games" },
             ],
-            index: 0,
-            ranks: undefined,
-            commands: undefined
+            index: 0
         };
-
-        this.getRanks = this.getRanks.bind(this);
-        this.getCommands = this.getCommands.bind(this);
-    }
-
-    getRanks() {
-        if (!this.state.ranks) {
-            fetch('/api/ranks')
-                .then(results => results.json()).then(data => {
-                    this.setState({
-                        ranks: data
-                    });
-            });
-        } else{
-            return this.state.ranks;
-        }
-    }
-
-    getCommands() {
-        if (!this.state.commands) {
-            fetch('/api/commands')
-                .then(results => results.json()).then(data => {
-                this.setState({
-                    commands: data
-                });
-            });
-        } else{
-            return this.state.commands;
-        }
     }
 
     handleClick(index) {
@@ -89,13 +51,10 @@ class Tabs extends Component {
                     <Route exact path="/">
                         <Table users={this.props.users} />
                     </Route>
-                    <Route path="/ranks">
-                        <Ranks ranks={this.getRanks()} />
-                    </Route>
-                    <Route path="/commands">
-                        <Commands commands={this.getCommands()} />
-                    </Route>
+                    <Route path="/ranks" component={Ranks} />
+                    <Route path="/commands" component={Commands} />
                     <Route path="/tokens" component={Tokens} />
+                    <Route path="/games" component={Games} />
                     <Route path="/profile/:id" component={Profile} />
                     <Route path="*" component={NotFound} />
                 </Switch>

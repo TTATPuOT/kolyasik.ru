@@ -1,29 +1,28 @@
 import React, { Component } from 'react';
 import Loader from "../Loader";
+import { connect } from 'react-redux';
 
 class Ranks extends Component {
     constructor(props) {
         super(props);
-
-        this.state = {
-            ranks: props.ranks
-        };
+        this.getRanks();
     }
 
-    shouldComponentUpdate(prevProps) {
-        if (this.state.ranks !== prevProps.ranks) {
-            this.setState({ranks: prevProps.ranks});
-            return true;
+    getRanks() {
+        if (!this.props.ranks.length) {
+            fetch('/api/ranks')
+                .then(results => results.json())
+                .then(data => this.props.ranksUpdated(data));
         }
     }
 
     render() {
-        if (this.state.ranks) {
+        if (this.props.ranks.length) {
             return <div className="ranks">
                 <p>За полученные токены вы автоматически получаете роли:</p>
                 <br/>
                 <div className="levels">
-                    {this.state.ranks.map((role, index) => {
+                    {this.props.ranks.map((role, index) => {
                         return (
                             <div className="level" key={'role-' + index}>
                                 Роль {role.name}
@@ -40,4 +39,11 @@ class Ranks extends Component {
     }
 }
 
-export default Ranks;
+export default connect(
+    state => ({
+        ranks: state.ranksState
+    }),
+    dispatch => ({
+        ranksUpdated: (ranks) => dispatch({type: "NEW", ranks: ranks})
+    })
+)(Ranks);
